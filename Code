@@ -11,13 +11,19 @@ vol <- 170^l
 #Matriz
 d<- data.frame(vol, l)
 
+#Hielos
+h <- ((vol/170)*3)*14
+
 #Plot
 c <- ggplot (data = d, aes(x=l, y=vol)) +
-  geom_area(colour='#32CD32') +
+  geom_line(colour='#32CD32') +
+  geom_line(aes(y=h),colour=' cadetblue2' )+
+  geom_line(aes(y=h+vol),colour='#f40000' )+
   xlab("Limón (ml)") +
   ylab("Volumen total de la cuba (ml)") +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
-        panel.background = element_rect(fill = '#360103')) 
+        panel.background = element_rect(fill = '#360103')) +
+  scale_y_continuous(limits=c(0, 3000))
 c
 
-                                
+                 
