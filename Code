@@ -1,0 +1,23 @@
+library (tidyverse)
+
+#Concentraciones de limón
+l <- c(seq(from=5, to = 15, by=1))
+17^l
+
+#Volumen de coca + ron
+l
+vol <- 170^l
+
+#Matriz
+d<- data.frame(vol, l)
+
+#Plot
+c <- ggplot (data = d, aes(x=l, y=vol)) +
+  geom_area(colour='#32CD32') +
+  xlab("Limón (ml)") +
+  ylab("Volumen total de la cuba (ml)") +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_rect(fill = '#360103')) 
+c
+
+                                
